@@ -7,9 +7,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you! Topic: ${topic}`);
-    setTopic('');
-    setMessage('');
+    // Opens the user's email client directly with pre-filled content
+    const mailtoLink = `mailto:tewachewmelaku6@gmail.com?subject=${encodeURIComponent(topic)}&body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -23,6 +23,7 @@ const Contact = () => {
           {/* Send Message Form */}
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 md:p-8 rounded-xl shadow-md">
             <h3 className="text-xl font-bold text-black dark:text-white mb-6">Send Me a Message</h3>
+            
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Topic</label>
@@ -87,7 +88,7 @@ const Contact = () => {
 
             <div className="pt-6">
               <a
-                href="#contact"
+                href="mailto:tewachewmelaku6@gmail.com"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg transition-colors"
               >
                 Get in Touch
