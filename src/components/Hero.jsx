@@ -8,12 +8,13 @@ const Hero = () => {
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
           <div className="flex-1 text-center md:text-left space-y-6">
+            <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 rounded-full text-sm md:text-base font-semibold">
+              Junior Full Stack Developer
+            </span>
+
             <h1 className="text-4xl md:text-6xl font-extrabold text-black dark:text-white leading-tight">
               Hi, I'm <span className="text-blue-600">Tewachew Melaku</span>
             </h1>
-            <p className="text-xl md:text-2xl font-semibold text-gray-700 dark:text-gray-300">
-              Junior Full Stack Developer
-            </p>
 
             <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-4">
               <a
