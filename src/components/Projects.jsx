@@ -7,28 +7,28 @@ const projects = [
     description: "System for order management, table reservation, and sales reporting.",
     tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
     image: "/assets/restaurant.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/Restaurant-Management-System",
   },
   {
     title: "Hotel Management System (GuestFlow)",
     description: "Platform for hotel room reservations, front desk operations, and billing.",
     tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
     image: "/assets/hotel.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/hotel-management-system",
   },
   {
     title: "Smart Agriculture Management System",
     description: "Real-time crop health, soil moisture monitoring, and farm analytics platform.",
     tech: ["React.js", "Node.js", "Express", "MySQL"],
     image: "/assets/smart.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/smart-agriculture-management-system",
   },
   {
     title: "Personal Expense Tracker",
     description: "Modern financial tracking web tool with a real-time responsive UI for recording and visualizing personal budgets.",
     tech: ["React.js", "Tailwind CSS", "JavaScript"],
     image: "/assets/expense.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/expense-tracker",
   },
 ];
 
