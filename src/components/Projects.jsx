@@ -24,10 +24,10 @@ const projects = [
     github: "https://github.com/tewa0121",
   },
   {
-    title: "Hospital Management System (MediCare HMS)",
-    description: "Comprehensive patient record tracking, doctor schedule, and ward management system.",
-    tech: ["Next.js", "Node.js", "Express", "MySQL"],
-    image: "/assets/hospital.png",
+    title: "Personal Expense Tracker",
+    description: "Modern financial tracking web tool with a real-time responsive UI for recording and visualizing personal budgets.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript"],
+    image: "/assets/expense.png",
     github: "https://github.com/tewa0121",
   },
 ];
@@ -58,7 +58,7 @@ const Projects = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-black dark:text-white mb-2">{proj.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">{proj.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-6">
                     {proj.tech.map((t, tIdx) => (
                       <span key={tIdx} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-xs font-semibold rounded">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Mail, GraduationCap, Target } from 'lucide-react';
+import { GraduationCap, Target } from 'lucide-react';
 
 const About = () => {
   return (
@@ -13,7 +13,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center border-b border-gray-200 dark:border-gray-700 pb-6 mb-6">
             <div className="flex justify-center md:justify-start">
               <img
-                src="/assets/profile.png"
+                src="/assets/profile.jpg"
                 alt="Tewachew Melaku"
                 className="w-32 h-32 rounded-full border-4 border-blue-600 object-cover shadow"
                 onError={(e) => {
@@ -23,7 +23,7 @@ const About = () => {
             </div>
             <div className="md:col-span-2 text-center md:text-left space-y-2">
               <h3 className="text-2xl font-bold text-black dark:text-white">Tewachew Melaku</h3>
-              <p className="text-blue-600 font-semibold">Full Stack Engineer / Developer</p>
+              <p className="text-blue-600 font-semibold">Junior Full Stack Developer</p>
               <p className="text-gray-600 dark:text-gray-300 text-sm flex items-center justify-center md:justify-start gap-2">
                 <GraduationCap size={18} className="text-blue-600" /> 4th-Year Software Engineering Student at Injibara University
               </p>
@@ -31,6 +31,12 @@ const About = () => {
           </div>
 
           <div className="space-y-6 text-black dark:text-gray-200">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              I'm a 4th-year Software Engineering student at Injibara University, passionate about
+              engineering reliable enterprise platforms, web software solutions, and user-centric
+              web applications.
+            </p>
+
             <div>
               <h4 className="text-lg font-bold flex items-center gap-2 text-black dark:text-white mb-2">
                 <Target className="text-blue-600" size={20} /> Professional Goals
@@ -38,23 +44,6 @@ const About = () => {
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
                 To build scalable enterprise applications, design high-efficiency database architectures using MySQL and MongoDB, and deliver intuitive web experiences using modern frontend technologies like React.js and Next.js.
               </p>
-            </div>
-
-            <div className="pt-4 flex flex-wrap justify-center md:justify-start gap-4">
-              <a
-                href="/assets/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg shadow transition-colors flex items-center gap-2"
-              >
-                <Download size={18} /> View CV
-              </a>
-              <a
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg shadow transition-colors flex items-center gap-2"
-              >
-                <Mail size={18} /> Contact Me
-              </a>
             </div>
           </div>
         </div>
