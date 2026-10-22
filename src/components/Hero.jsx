@@ -1,9 +1,25 @@
-import React from 'react';
-import { Download, Mail } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Download, Mail, Eye, X } from 'lucide-react';
 
 const techStack = ['Node.js', 'React.js', 'MySQL'];
 
 const Hero = () => {
+  const [showCv, setShowCv] = useState(false);
+
+  // Close on Escape and lock page scroll while the CV is open
+  useEffect(() => {
+    if (!showCv) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setShowCv(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [showCv]);
+
   return (
     <section id="home" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,14 +36,13 @@ const Hero = () => {
             </h1>
 
             <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-4">
-              <a
-                href="/assets/cv.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setShowCv(true)}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg shadow transition-colors flex items-center gap-2"
               >
-                <Download size={18} /> View CV
-              </a>
+                <Eye size={18} /> View CV
+              </button>
               <a
                 href="#contact"
                 className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg shadow transition-colors flex items-center gap-2"
@@ -67,6 +82,54 @@ const Hero = () => {
 
         </div>
       </div>
+
+      {/* CV viewer pop-up */}
+      {showCv && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setShowCv(false)}
+        >
+          <div
+            className="bg-white dark:bg-gray-900 rounded-xl shadow-2xl w-full max-w-4xl h-[85vh] flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+              <h3 className="font-bold text-black dark:text-white">Tewachew Melaku - CV</h3>
+              <div className="flex items-center gap-2">
+                <a
+                  href="/assets/cv.pdf"
+                  download="Tewachew_Melaku_CV.pdf"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  <Download size={16} /> Download
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setShowCv(false)}
+                  aria-label="Close CV"
+                  className="p-1.5 rounded-lg text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+            </div>
+
+            <object data="/assets/cv.pdf" type="application/pdf" className="flex-1 w-full">
+              {/* Shown when the browser cannot display PDFs (many phones) */}
+              <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center text-gray-700 dark:text-gray-300">
+                <p>Your browser can't show the CV here.</p>
+                <a
+                  href="/assets/cv.pdf"
+                  download="Tewachew_Melaku_CV.pdf"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
+                >
+                  <Download size={18} /> Download CV
+                </a>
+              </div>
+            </object>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

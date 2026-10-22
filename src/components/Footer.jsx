@@ -1,12 +1,16 @@
 import React from 'react';
-import { Home, User, Briefcase, FolderGit2, Code2, PhoneCall } from 'lucide-react';
+import { Home, User, Briefcase, FolderGit2, Code2, PhoneCall, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
     <>
       <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-6 mb-16 md:mb-0 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 text-center text-gray-600 dark:text-gray-400 text-sm">
-          © {new Date().getFullYear()} Tewachew Melaku. All rights reserved.
+        <div className="max-w-7xl mx-auto px-4 text-center text-gray-600 dark:text-gray-400 text-sm space-y-2">
+          <p className="flex items-center justify-center gap-2">
+            <MapPin size={16} className="text-blue-600" />
+            Injibara, Ethiopia
+          </p>
+          <p>© {new Date().getFullYear()} Tewachew Melaku. All rights reserved.</p>
         </div>
       </footer>
 
