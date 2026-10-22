@@ -5,3 +5,36 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Spinning colorful ring around the photo */
+@keyframes spin-ring {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Soft pulsing glow around the photo */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px 4px rgba(37, 99, 235, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 45px 14px rgba(37, 99, 235, 0.6);
+  }
+}
+
+.photo-ring {
+  background: conic-gradient(from 0deg, #2563eb, #60a5fa, #a78bfa, #22d3ee, #2563eb);
+  animation: spin-ring 6s linear infinite;
+}
+
+.photo-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-ring,
+  .photo-glow {
+    animation: none;
+  }
+}
