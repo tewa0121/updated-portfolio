@@ -32,7 +32,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
-            {/* Download CV */}
             <a
               href="/assets/cv.pdf"
               download="Tewachew_Melaku_CV.pdf"
