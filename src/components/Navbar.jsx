@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Download } from 'lucide-react';
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   return (
@@ -8,7 +8,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <a href="#home" className="text-xl font-bold text-black dark:text-white">
-              Tewachew<span className="text-blue-600">.dev</span>
+              Tewachew<span className="text-blue-600"> Melaku</span>
             </a>
           </div>
 
@@ -31,6 +31,16 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
+
+            <a
+              href="/assets/cv.pdf"
+              download="Tewachew_Melaku_CV.pdf"
+              title="Download CV"
+              className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-500 dark:hover:text-white font-medium px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <Download size={18} />
+              <span className="hidden sm:inline">Download CV</span>
+            </a>
 
             <a
               href="#contact"

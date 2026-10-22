@@ -7,28 +7,28 @@ const projects = [
     description: "System for order management, table reservation, and sales reporting.",
     tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
     image: "/assets/restaurant.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/Restaurant-Management-System",
   },
   {
     title: "Hotel Management System (GuestFlow)",
     description: "Platform for hotel room reservations, front desk operations, and billing.",
     tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
     image: "/assets/hotel.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/hotel-management-system",
   },
   {
     title: "Smart Agriculture Management System",
     description: "Real-time crop health, soil moisture monitoring, and farm analytics platform.",
     tech: ["React.js", "Node.js", "Express", "MySQL"],
     image: "/assets/smart.png",
-    github: "https://github.com/tewa0121",
+    github: "https://github.com/tewa0121/smart-agriculture-management-system",
   },
   {
-    title: "Hospital Management System (MediCare HMS)",
-    description: "Comprehensive patient record tracking, doctor schedule, and ward management system.",
-    tech: ["Next.js", "Node.js", "Express", "MySQL"],
-    image: "/assets/hospital.png",
-    github: "https://github.com/tewa0121",
+    title: "Personal Expense Tracker",
+    description: "Modern financial tracking web tool with a real-time responsive UI for recording and visualizing personal budgets.",
+    tech: ["React.js", "Tailwind CSS", "JavaScript"],
+    image: "/assets/expense.png",
+    github: "https://github.com/tewa0121/expense-tracker",
   },
 ];
 
@@ -58,7 +58,7 @@ const Projects = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-black dark:text-white mb-2">{proj.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">{proj.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-6">
                     {proj.tech.map((t, tIdx) => (
                       <span key={tIdx} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-xs font-semibold rounded">
@@ -76,7 +76,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition-colors"
                 >
-                  <Code size={16} /> See Code
+                  <Code size={16} /> live demo
                 </a>
               </div>
             </div>
