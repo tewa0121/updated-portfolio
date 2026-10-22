@@ -9,6 +9,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
+          {/* Left: role, name, buttons */}
           <div className="flex-1 text-center md:text-left space-y-6">
             <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 rounded-full text-sm md:text-base font-semibold">
               Junior Full Stack Developer
@@ -36,20 +37,22 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Right: photo (stays in place, ring spins and glow pulses) + tech stack */}
           <div className="flex-1 flex flex-col items-center gap-8">
-            {/* Floating photo */}
-            <div className="animate-float relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-blue-600 shadow-2xl overflow-hidden bg-white">
-              <img
-                src="/assets/profile.jpg"
-                alt="Tewachew Melaku"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/300?text=Tewachew+Melaku";
-                }}
-              />
+            <div className="photo-glow relative w-64 h-64 md:w-80 md:h-80 rounded-full">
+              <div className="photo-ring absolute inset-0 rounded-full"></div>
+              <div className="absolute inset-[5px] rounded-full overflow-hidden bg-white dark:bg-gray-900">
+                <img
+                  src="/assets/profile.jpg"
+                  alt="Tewachew Melaku"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "https://via.placeholder.com/300?text=Tewachew+Melaku";
+                  }}
+                />
+              </div>
             </div>
 
-            {/* Tech stack under the photo */}
             <div className="flex flex-wrap justify-center gap-3">
               {techStack.map((tech) => (
                 <span
