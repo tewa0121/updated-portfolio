@@ -37,7 +37,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right: photo (stays in place, ring spins and glow pulses) + tech stack */}
+          {/* Right: photo (frame stays in place; ring spins, glow pulses, photo breathes) + tech stack */}
           <div className="flex-1 flex flex-col items-center gap-8">
             <div className="photo-glow relative w-64 h-64 md:w-80 md:h-80 rounded-full">
               <div className="photo-ring absolute inset-0 rounded-full"></div>
@@ -45,7 +45,7 @@ const Hero = () => {
                 <img
                   src="/assets/profile.jpg"
                   alt="Tewachew Melaku"
-                  className="w-full h-full object-cover"
+                  className="photo-breathe w-full h-full object-cover"
                   onError={(e) => {
                     e.target.src = "https://via.placeholder.com/300?text=Tewachew+Melaku";
                   }}
