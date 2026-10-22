@@ -76,7 +76,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition-colors"
                 >
-                  <Code size={16} /> See Code
+                  <Code size={16} /> live demo
                 </a>
               </div>
             </div>

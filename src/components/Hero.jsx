@@ -1,6 +1,8 @@
 import React from 'react';
 import { Download, Mail } from 'lucide-react';
 
+const techStack = ['Node.js', 'React.js', 'MySQL'];
+
 const Hero = () => {
   return (
     <section id="home" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
@@ -34,8 +36,9 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="flex-1 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-blue-600 shadow-2xl overflow-hidden bg-white">
+          <div className="flex-1 flex flex-col items-center gap-8">
+            {/* Floating photo */}
+            <div className="animate-float relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-blue-600 shadow-2xl overflow-hidden bg-white">
               <img
                 src="/assets/profile.jpg"
                 alt="Tewachew Melaku"
@@ -44,6 +47,18 @@ const Hero = () => {
                   e.target.src = "https://via.placeholder.com/300?text=Tewachew+Melaku";
                 }}
               />
+            </div>
+
+            {/* Tech stack under the photo */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-1.5 bg-white dark:bg-gray-800 border border-blue-600/40 text-black dark:text-gray-200 text-sm font-semibold rounded-full shadow-sm hover:border-blue-600 hover:-translate-y-1 transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
 
