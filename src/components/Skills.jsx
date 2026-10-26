@@ -1,32 +1,87 @@
 import React, { useState } from 'react';
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaNodeJs,
+  FaPhp,
+  FaGitAlt,
+  FaFigma,
+  FaMobileAlt,
+} from 'react-icons/fa';
+import {
+  SiNextdotjs,
+  SiJavascript,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiVercel,
+  SiPostman,
+} from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
+import { TbApi } from 'react-icons/tb';
+import { Lightbulb, Users, MessageCircle, Clock } from 'lucide-react';
 
 const skillCategories = [
   {
     category: "Frontend",
-    skills: ["Next.js", "React.js", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Responsiveness"]
+    skills: [
+      { name: "Next.js", Icon: SiNextdotjs, color: "text-black dark:text-white" },
+      { name: "React.js", Icon: FaReact, color: "text-[#61DAFB]" },
+      { name: "JavaScript", Icon: SiJavascript, color: "text-yellow-500" },
+      { name: "Tailwind CSS", Icon: SiTailwindcss, color: "text-[#06B6D4]" },
+      { name: "HTML", Icon: FaHtml5, color: "text-[#E34F26]" },
+      { name: "CSS", Icon: FaCss3Alt, color: "text-[#1572B6]" },
+      { name: "Responsiveness", Icon: FaMobileAlt, color: "text-blue-600" },
+    ],
   },
   {
     category: "Backend",
-    skills: ["Node.js", "REST API", "Express", "PHP"]
+    skills: [
+      { name: "Node.js", Icon: FaNodeJs, color: "text-[#339933]" },
+      { name: "REST API", Icon: TbApi, color: "text-blue-600" },
+      { name: "Express", Icon: SiExpress, color: "text-black dark:text-white" },
+      { name: "PHP", Icon: FaPhp, color: "text-[#777BB4]" },
+    ],
   },
   {
     category: "Database",
-    skills: ["MongoDB", "MySQL"]
+    skills: [
+      { name: "MongoDB", Icon: SiMongodb, color: "text-[#47A248]" },
+      { name: "MySQL", Icon: SiMysql, color: "text-[#4479A1]" },
+    ],
   },
   {
     category: "DevOps",
-    skills: ["Git & GitHub", "Vercel"]
+    skills: [
+      { name: "Git & GitHub", Icon: FaGitAlt, color: "text-[#F05032]" },
+      { name: "Vercel", Icon: SiVercel, color: "text-black dark:text-white" },
+    ],
   },
   {
     category: "Tools & Design",
-    skills: ["VS Code", "Postman", "Figma"]
-  }
+    skills: [
+      { name: "VS Code", Icon: VscVscode, color: "text-[#007ACC]" },
+      { name: "Postman", Icon: SiPostman, color: "text-[#FF6C37]" },
+      { name: "Figma", Icon: FaFigma, color: "text-[#F24E1E]" },
+    ],
+  },
+  {
+    category: "Other Skills",
+    skills: [
+      { name: "Problem Solving", Icon: Lightbulb, color: "text-yellow-500" },
+      { name: "Teamwork", Icon: Users, color: "text-blue-600" },
+      { name: "Communication", Icon: MessageCircle, color: "text-green-600" },
+      { name: "Time Management", Icon: Clock, color: "text-purple-600" },
+    ],
+  },
 ];
 
 const Skills = () => {
   const [showAll, setShowAll] = useState(false);
 
-  // Toggle showing 2 categories vs all 5
+  // Show the first 2 categories, or all 6 when expanded
   const visibleCategories = showAll ? skillCategories : skillCategories.slice(0, 2);
 
   return (
@@ -37,18 +92,22 @@ const Skills = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {visibleCategories.map((cat, idx) => (
-            <div key={idx} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm">
+          {visibleCategories.map((cat) => (
+            <div
+              key={cat.category}
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm"
+            >
               <h3 className="text-lg font-bold text-black dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
                 {cat.category}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill, sIdx) => (
+                {cat.skills.map(({ name, Icon, color }) => (
                   <span
-                    key={sIdx}
-                    className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-sm font-medium rounded-lg"
+                    key={name}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-sm font-medium rounded-lg hover:-translate-y-0.5 hover:shadow transition-all duration-200"
                   >
-                    {skill}
+                    <Icon size={18} className={color} />
+                    {name}
                   </span>
                 ))}
               </div>

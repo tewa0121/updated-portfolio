@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Mail, Eye, X } from 'lucide-react';
+import { Download, Mail, Eye, X, GraduationCap, CalendarDays } from 'lucide-react';
 
-const techStack = ['Node.js', 'React.js', 'MySQL'];
+const motto = ['Build', 'Learn', 'Create', 'Grow'];
 
 const Hero = () => {
   const [showCv, setShowCv] = useState(false);
@@ -25,15 +25,40 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
-          {/* Left: role, name, buttons */}
+          {/* Left: name, program, role, university info, buttons */}
           <div className="flex-1 text-center md:text-left space-y-6">
-            <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 rounded-full text-sm md:text-base font-semibold">
-              Junior Full Stack Developer
-            </span>
-
             <h1 className="text-4xl md:text-6xl font-extrabold text-black dark:text-white leading-tight">
               Hi, I'm <span className="text-blue-600">Tewachew Melaku</span>
             </h1>
+
+            <div className="space-y-3">
+              <p className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Software Engineering Student (4th Year)
+              </p>
+              <div>
+                <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 rounded-full text-sm md:text-base font-semibold">
+                  Junior Full Stack Developer
+                </span>
+              </div>
+            </div>
+
+            {/* University and academic year */}
+            <div className="flex flex-col sm:flex-row items-center md:items-stretch justify-center md:justify-start gap-4">
+              <div className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 shadow-sm">
+                <GraduationCap size={24} className="text-blue-600" />
+                <div className="text-left">
+                  <p className="text-sm font-bold text-black dark:text-white">Injibara University</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Injibara, Ethiopia</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 shadow-sm">
+                <CalendarDays size={24} className="text-blue-600" />
+                <div className="text-left">
+                  <p className="text-sm font-bold text-black dark:text-white">Academic Year</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">2023 – Present</p>
+                </div>
+              </div>
+            </div>
 
             <div className="pt-2 flex flex-wrap justify-center md:justify-start gap-4">
               <button
@@ -52,7 +77,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right: photo (frame stays in place; ring spins, glow pulses, photo breathes) + tech stack */}
+          {/* Right: photo (frame stays in place; ring spins, glow pulses, photo breathes) + motto */}
           <div className="flex-1 flex flex-col items-center gap-8">
             <div className="photo-glow relative w-64 h-64 md:w-80 md:h-80 rounded-full">
               <div className="photo-ring absolute inset-0 rounded-full"></div>
@@ -69,12 +94,13 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-3">
-              {techStack.map((tech) => (
+              {motto.map((word, i) => (
                 <span
-                  key={tech}
-                  className="px-4 py-1.5 bg-white dark:bg-gray-800 border border-blue-600/40 text-black dark:text-gray-200 text-sm font-semibold rounded-full shadow-sm hover:border-blue-600 hover:-translate-y-1 transition-all duration-300"
+                  key={word}
+                  className="motto-word px-5 py-1.5 rounded-full text-sm md:text-base font-bold tracking-wider shadow-md"
+                  style={{ animationDelay: `${i * 0.5}s` }}
                 >
-                  {tech}
+                  {word}
                 </span>
               ))}
             </div>
@@ -114,17 +140,27 @@ const Hero = () => {
               </div>
             </div>
 
-            <object data="/assets/cv.pdf" type="application/pdf" className="flex-1 w-full">
-              {/* Shown when the browser cannot display PDFs (many phones) */}
-              <div className="h-full flex flex-col items-center justify-center gap-4 p-6 text-center text-gray-700 dark:text-gray-300">
-                <p>Your browser can't show the CV here.</p>
-                <a
-                  href="/assets/cv.pdf"
-                  download="Tewachew_Melaku_CV.pdf"
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
-                >
-                  <Download size={18} /> Download CV
-                </a>
+            <object
+              data="/assets/cv.pdf"
+              type="application/pdf"
+              className="flex-1 min-h-0 w-full"
+            >
+              {/* Fallback for phones that cannot display PDFs: show the CV as an image */}
+              <div className="h-full overflow-auto bg-gray-100 dark:bg-gray-800 p-2">
+                <img
+                  src="/assets/cv-preview.jpg"
+                  alt="Tewachew Melaku CV"
+                  className="w-full h-auto max-w-3xl mx-auto shadow-lg"
+                />
+                <div className="text-center py-4">
+                  <a
+                    href="/assets/cv.pdf"
+                    download="Tewachew_Melaku_CV.pdf"
+                    className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
+                  >
+                    <Download size={18} /> Download CV (PDF)
+                  </a>
+                </div>
               </div>
             </object>
           </div>
