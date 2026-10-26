@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Mail, Eye, X, GraduationCap, CalendarDays } from 'lucide-react';
+import { Download, Mail, Eye, X } from 'lucide-react';
 
 const motto = ['Build', 'Learn', 'Create', 'Grow'];
 
@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
-          {/* Left: name, program, role, university info, buttons */}
+          {/* Left: name, program, role, buttons */}
           <div className="flex-1 text-center md:text-left space-y-6">
             <h1 className="text-4xl md:text-6xl font-extrabold text-black dark:text-white leading-tight">
               Hi, I'm <span className="text-blue-600">Tewachew Melaku</span>
@@ -39,24 +39,6 @@ const Hero = () => {
                 <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 rounded-full text-sm md:text-base font-semibold">
                   Junior Full Stack Developer
                 </span>
-              </div>
-            </div>
-
-            {/* University and academic year */}
-            <div className="flex flex-col sm:flex-row items-center md:items-stretch justify-center md:justify-start gap-4">
-              <div className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 shadow-sm">
-                <GraduationCap size={24} className="text-blue-600" />
-                <div className="text-left">
-                  <p className="text-sm font-bold text-black dark:text-white">Injibara University</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Injibara, Ethiopia</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 shadow-sm">
-                <CalendarDays size={24} className="text-blue-600" />
-                <div className="text-left">
-                  <p className="text-sm font-bold text-black dark:text-white">Academic Year</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">2023 – Present</p>
-                </div>
               </div>
             </div>
 

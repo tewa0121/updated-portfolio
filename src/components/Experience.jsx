@@ -9,7 +9,7 @@ const timeline = [
     title: 'B.Sc. in Software Engineering (4th Year)',
     org: 'Injibara University',
     description:
-      'Focusing on full-stack web engineering, database architecture (MySQL, MongoDB), software patterns, and algorithms.',
+      'Focusing on full-stack web engineering, database design, software patterns, and algorithms.',
     Icon: GraduationCap,
   },
   {
@@ -18,7 +18,7 @@ const timeline = [
     title: 'Full Stack Web Developer',
     org: 'Independent & Academic Projects',
     description:
-      'Designed and deployed full-stack web management systems using React, Next.js, Node.js, Express, MySQL, and MongoDB.',
+      'Designed and deployed full-stack web management systems, from the user interface to the database.',
     Icon: Briefcase,
   },
 ];
