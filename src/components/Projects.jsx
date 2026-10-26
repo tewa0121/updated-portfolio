@@ -7,8 +7,8 @@ const projects = [
     title: "Restaurant Management System",
     description: "System for order management, table reservation, and sales reporting.",
     features: [
-      "CRUD API endpoints for ordering and table reservation",
-      "Frontend state integrated with MySQL queries",
+      "CRUD API endpoints for each workflow",
+      "Frontend state integrated with database queries",
     ],
     tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
     image: "/assets/restaurant.png",
@@ -32,9 +32,9 @@ const projects = [
     title: "Smart Agriculture Management System",
     description: "Real-time crop health, soil moisture monitoring, and farm analytics platform.",
     features: [
-      "REST endpoints for real-time data handling",
-      "Normalized MySQL schemas for sensor and resource records",
-      "Responsive React UI for metrics display",
+      "REST endpoints for live data handling",
+      "Normalized schemas for sensor and resource records",
+      "Responsive metrics display",
     ],
     tech: ["React.js", "Node.js", "Express", "MySQL"],
     image: "/assets/smart.png",
@@ -43,10 +43,10 @@ const projects = [
   },
   {
     title: "Personal Expense Tracker",
-    description: "Modern financial tracking web tool with a real-time responsive UI for recording and visualizing personal budgets.",
+    description: "Financial tracking web tool for recording and visualizing personal budgets.",
     features: [
-      "Record and visualize personal budgets",
-      "Mobile-first responsive design with Tailwind CSS",
+      "Real-time responsive interface",
+      "Mobile-first design",
     ],
     tech: ["React.js", "Tailwind CSS", "JavaScript"],
     image: "/assets/expense.png",
