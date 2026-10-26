@@ -36,6 +36,18 @@ html {
   }
 }
 
+/* Build · Learn · Create · Grow pills: color flow and glow */
+@keyframes motto-flow {
+  0%, 100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.5);
+  }
+}
+
 .photo-ring {
   background: conic-gradient(from 0deg, #2563eb, #60a5fa, #a78bfa, #22d3ee, #2563eb);
   animation: spin-ring 6s linear infinite;
@@ -49,10 +61,18 @@ html {
   animation: photo-breathe 8s ease-in-out infinite;
 }
 
+.motto-word {
+  color: #ffffff;
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4, #2563eb);
+  background-size: 300% 100%;
+  animation: motto-flow 4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .photo-ring,
   .photo-glow,
-  .photo-breathe {
+  .photo-breathe,
+  .motto-word {
     animation: none;
   }
 }
