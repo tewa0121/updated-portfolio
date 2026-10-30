@@ -1,9 +1,22 @@
 import React from 'react';
 import { Sun, Moon, Download } from 'lucide-react';
+import useActiveSection from '../hooks/useActiveSection';
+
+const links = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
+];
+const ids = links.map((l) => l.id);
 
 const Navbar = ({ darkMode, setDarkMode }) => {
+  const active = useActiveSection(ids);
+
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <nav className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -14,12 +27,18 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6 text-black dark:text-gray-200">
-              <a href="#home" className="hover:text-blue-600 font-medium transition-colors">Home</a>
-              <a href="#about" className="hover:text-blue-600 font-medium transition-colors">About</a>
-              <a href="#experience" className="hover:text-blue-600 font-medium transition-colors">Experience</a>
-              <a href="#projects" className="hover:text-blue-600 font-medium transition-colors">Projects</a>
-              <a href="#skills" className="hover:text-blue-600 font-medium transition-colors">Skills</a>
-              <a href="#contact" className="hover:text-blue-600 font-medium transition-colors">Contact</a>
+              {links.map(({ id, label }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  aria-current={active === id ? 'true' : undefined}
+                  className={`font-medium transition-colors hover:text-blue-600 ${
+                    active === id ? 'text-blue-600 dark:text-blue-400' : ''
+                  }`}
+                >
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -27,7 +46,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-black dark:text-yellow-400 hover:ring-2 ring-blue-500 transition-all"
-              title="Toggle Theme"
+              title="Toggle theme"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>

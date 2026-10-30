@@ -1,14 +1,5 @@
-import React, { useState } from 'react';
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaNodeJs,
-  FaPhp,
-  FaGitAlt,
-  FaFigma,
-  FaMobileAlt,
-} from 'react-icons/fa';
+import React from 'react';
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaPhp, FaGitAlt, FaFigma, FaMobileAlt } from 'react-icons/fa';
 import {
   SiNextdotjs,
   SiJavascript,
@@ -18,72 +9,70 @@ import {
   SiMysql,
   SiVercel,
   SiPostman,
+  SiCplusplus,
 } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 import { TbApi } from 'react-icons/tb';
 import { Lightbulb, Users, MessageCircle, Clock } from 'lucide-react';
 
+// Keep this list in sync with the CV
 const skillCategories = [
   {
-    category: "Frontend",
+    category: 'Programming Languages',
     skills: [
-      { name: "Next.js", Icon: SiNextdotjs, color: "text-black dark:text-white" },
-      { name: "React.js", Icon: FaReact, color: "text-[#61DAFB]" },
-      { name: "JavaScript", Icon: SiJavascript, color: "text-yellow-500" },
-      { name: "Tailwind CSS", Icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "HTML", Icon: FaHtml5, color: "text-[#E34F26]" },
-      { name: "CSS", Icon: FaCss3Alt, color: "text-[#1572B6]" },
-      { name: "Responsiveness", Icon: FaMobileAlt, color: "text-blue-600" },
+      { name: 'JavaScript', Icon: SiJavascript, color: 'text-yellow-500' },
+      { name: 'C++', Icon: SiCplusplus, color: 'text-[#00599C]' },
+      { name: 'PHP', Icon: FaPhp, color: 'text-[#777BB4]' },
     ],
   },
   {
-    category: "Backend",
+    category: 'Frontend',
     skills: [
-      { name: "Node.js", Icon: FaNodeJs, color: "text-[#339933]" },
-      { name: "REST API", Icon: TbApi, color: "text-blue-600" },
-      { name: "Express", Icon: SiExpress, color: "text-black dark:text-white" },
-      { name: "PHP", Icon: FaPhp, color: "text-[#777BB4]" },
+      { name: 'React.js', Icon: FaReact, color: 'text-[#61DAFB]' },
+      { name: 'Next.js', Icon: SiNextdotjs, color: 'text-black dark:text-white' },
+      { name: 'Tailwind CSS', Icon: SiTailwindcss, color: 'text-[#06B6D4]' },
+      { name: 'HTML5', Icon: FaHtml5, color: 'text-[#E34F26]' },
+      { name: 'CSS3', Icon: FaCss3Alt, color: 'text-[#1572B6]' },
+      { name: 'Responsive Design', Icon: FaMobileAlt, color: 'text-blue-600' },
     ],
   },
   {
-    category: "Database",
+    category: 'Backend & Database',
     skills: [
-      { name: "MongoDB", Icon: SiMongodb, color: "text-[#47A248]" },
-      { name: "MySQL", Icon: SiMysql, color: "text-[#4479A1]" },
+      { name: 'Node.js', Icon: FaNodeJs, color: 'text-[#339933]' },
+      { name: 'Express.js', Icon: SiExpress, color: 'text-black dark:text-white' },
+      { name: 'REST APIs', Icon: TbApi, color: 'text-blue-600' },
+      { name: 'MySQL', Icon: SiMysql, color: 'text-[#4479A1]' },
     ],
   },
   {
-    category: "DevOps",
+    category: 'Tools & Platforms',
     skills: [
-      { name: "Git & GitHub", Icon: FaGitAlt, color: "text-[#F05032]" },
-      { name: "Vercel", Icon: SiVercel, color: "text-black dark:text-white" },
+      { name: 'Git & GitHub', Icon: FaGitAlt, color: 'text-[#F05032]' },
+      { name: 'Postman', Icon: SiPostman, color: 'text-[#FF6C37]' },
+      { name: 'VS Code', Icon: VscVscode, color: 'text-[#007ACC]' },
+      { name: 'Vercel', Icon: SiVercel, color: 'text-black dark:text-white' },
     ],
   },
   {
-    category: "Tools & Design",
+    category: 'Currently Learning',
     skills: [
-      { name: "VS Code", Icon: VscVscode, color: "text-[#007ACC]" },
-      { name: "Postman", Icon: SiPostman, color: "text-[#FF6C37]" },
-      { name: "Figma", Icon: FaFigma, color: "text-[#F24E1E]" },
+      { name: 'MongoDB', Icon: SiMongodb, color: 'text-[#47A248]' },
+      { name: 'Figma', Icon: FaFigma, color: 'text-[#F24E1E]' },
     ],
   },
   {
-    category: "Other Skills",
+    category: 'Soft Skills',
     skills: [
-      { name: "Problem Solving", Icon: Lightbulb, color: "text-yellow-500" },
-      { name: "Teamwork", Icon: Users, color: "text-blue-600" },
-      { name: "Communication", Icon: MessageCircle, color: "text-green-600" },
-      { name: "Time Management", Icon: Clock, color: "text-purple-600" },
+      { name: 'Problem Solving', Icon: Lightbulb, color: 'text-yellow-500' },
+      { name: 'Teamwork', Icon: Users, color: 'text-blue-600' },
+      { name: 'Communication', Icon: MessageCircle, color: 'text-green-600' },
+      { name: 'Time Management', Icon: Clock, color: 'text-purple-600' },
     ],
   },
 ];
 
 const Skills = () => {
-  const [showAll, setShowAll] = useState(false);
-
-  // Show the first 2 categories, or all 6 when expanded
-  const visibleCategories = showAll ? skillCategories : skillCategories.slice(0, 2);
-
   return (
     <section id="skills" className="py-16 bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,7 +81,7 @@ const Skills = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {visibleCategories.map((cat) => (
+          {skillCategories.map((cat) => (
             <div
               key={cat.category}
               className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm"
@@ -113,16 +102,6 @@ const Skills = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Toggle Button */}
-        <div className="text-center mt-8">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
-          >
-            {showAll ? "Show Fewer Skills" : "Show All Skills"}
-          </button>
         </div>
       </div>
     </section>

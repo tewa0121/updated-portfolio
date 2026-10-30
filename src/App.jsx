@@ -8,26 +8,35 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+const getInitialTheme = () => {
+  try {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved === 'dark';
+  } catch (e) {}
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(getInitialTheme);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
+    try {
+      localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    } catch (e) {}
   }, [darkMode]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

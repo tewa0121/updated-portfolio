@@ -13,12 +13,12 @@ const timeline = [
     Icon: GraduationCap,
   },
   {
-    period: 'During my studies',
+    period: '2023 – Present',
     type: 'Practical Work',
     title: 'Full Stack Web Developer',
     org: 'Independent & Academic Projects',
     description:
-      'Designed and deployed full-stack web management systems, from the user interface to the database.',
+      'Built five full-stack web applications with React, Tailwind CSS, Node.js, Express and MySQL, covering the user interface, REST APIs and database design.',
     Icon: Briefcase,
   },
 ];
