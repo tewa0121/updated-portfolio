@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; /* keeps section titles clear of the sticky navbar */
 }
 
 /* Spinning colorful ring around the photo */
@@ -63,7 +64,7 @@ html {
 
 .motto-word {
   color: #ffffff;
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4, #2563eb);
+  background: linear-gradient(90deg, #1d4ed8, #6d28d9, #0e7490, #1d4ed8);
   background-size: 300% 100%;
   animation: motto-flow 4s ease-in-out infinite;
 }

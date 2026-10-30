@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, Send, Linkedin, Github } from 'lucide-react';
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', botcheck: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) => {
@@ -11,6 +11,17 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Hidden honeypot field: real visitors never fill it, bots do
+    if (form.botcheck) return;
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey) {
+      console.error('VITE_WEB3FORMS_KEY is not set. See .env.example');
+      setStatus('error');
+      return;
+    }
+
     setStatus('sending');
 
     try {
@@ -18,7 +29,7 @@ const Contact = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          access_key: accessKey,
           subject: `New portfolio message from ${form.name}`,
           from_name: 'Portfolio Website',
           name: form.name,
@@ -30,7 +41,7 @@ const Contact = () => {
 
       if (data.success) {
         setStatus('success');
-        setForm({ name: '', email: '', message: '' });
+        setForm({ name: '', email: '', message: '', botcheck: '' });
       } else {
         setStatus('error');
       }
@@ -56,9 +67,10 @@ const Contact = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Name</label>
+                <label htmlFor="contact-name" className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Name</label>
                 <input
                   type="text"
+                  id="contact-name"
                   name="name"
                   required
                   placeholder="Your name"
@@ -69,9 +81,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Email</label>
+                <label htmlFor="contact-email" className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Email</label>
                 <input
                   type="email"
+                  id="contact-email"
                   name="email"
                   required
                   placeholder="you@example.com"
@@ -82,8 +95,9 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Message</label>
+                <label htmlFor="contact-message" className="block text-sm font-medium text-black dark:text-gray-200 mb-1">Message</label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   rows="4"
                   required
@@ -94,6 +108,17 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              {/* Honeypot (hidden from people) */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                checked={!!form.botcheck}
+                onChange={(e) => setForm({ ...form, botcheck: e.target.checked ? 'yes' : '' })}
+              />
+
               <button
                 type="submit"
                 disabled={status === 'sending'}
@@ -102,6 +127,7 @@ const Contact = () => {
                 <Send size={18} /> {status === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
 
+              <div aria-live="polite">
               {status === 'success' && (
                 <p className="text-green-600 dark:text-green-400 text-sm text-center">
                   Thank you! Your message has been sent.
@@ -112,6 +138,7 @@ const Contact = () => {
                   Something went wrong. Please try again or email me directly.
                 </p>
               )}
+              </div>
             </form>
           </div>
 
