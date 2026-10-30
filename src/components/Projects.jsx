@@ -1,57 +1,73 @@
 import React from 'react';
 import { Code, ExternalLink } from 'lucide-react';
 
-// Put a link in "demo" to show a Live Demo button. Leave "" to hide it.
+const FALLBACK_IMAGE = '/assets/placeholder.svg';
+
+// "demo": paste your deployed link to show a Live Demo button. Leave "" to hide it.
 const projects = [
   {
-    title: "Restaurant Management System",
-    description: "System for order management, table reservation, and sales reporting.",
+    title: 'Smart Blog System',
+    description: 'Full-stack blogging platform for writing, publishing and reading posts.',
     features: [
-      "CRUD API endpoints for each workflow",
-      "Frontend state integrated with database queries",
+      'Responsive reading and writing experience on any device',
+      'Node.js back end that serves blog content to the React client',
     ],
-    tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
-    image: "/assets/restaurant.png",
-    github: "https://github.com/tewa0121/Restaurant-Management-System",
-    demo: "",
+    tech: ['React.js', 'Tailwind CSS', 'Node.js'],
+    image: '/assets/blog.png',
+    github: 'https://github.com/tewa0121/smart-blog-platform',
+    demo: '',
+    isNew: true,
   },
   {
-    title: "Hotel Management System (GuestFlow)",
-    description: "Platform for hotel room reservations, front desk operations, and billing.",
+    title: 'Global Sentiment Tracker',
+    description: 'Web application that tracks and presents public sentiment across the world.',
     features: [
-      "Secure guest authentication",
-      "Room availability queries",
-      "API endpoints validated with Postman",
+      'Clear, responsive dashboard for exploring sentiment',
+      'Node.js server that supplies sentiment data to the interface',
     ],
-    tech: ["React.js", "Node.js", "Express", "MySQL", "JavaScript"],
-    image: "/assets/hotel.png",
-    github: "https://github.com/tewa0121/hotel-management-system",
-    demo: "",
+    tech: ['React.js', 'Tailwind CSS', 'Node.js'],
+    image: '/assets/sentiment.png',
+    github: 'https://github.com/tewa0121/Global-Sentiment-Tracker',
+    demo: '',
+    isNew: true,
   },
   {
-    title: "Smart Agriculture Management System",
-    description: "Real-time crop health, soil moisture monitoring, and farm analytics platform.",
+    title: 'Smart Agriculture Management System',
+    description: 'Real-time crop health, soil moisture monitoring, and farm analytics platform.',
     features: [
-      "REST endpoints for live data handling",
-      "Normalized schemas for sensor and resource records",
-      "Responsive metrics display",
+      'REST endpoints for live data handling',
+      'Normalized MySQL schemas for sensor and resource records',
+      'Responsive metrics display',
     ],
-    tech: ["React.js", "Node.js", "Express", "MySQL"],
-    image: "/assets/smart.png",
-    github: "https://github.com/tewa0121/smart-agriculture-management-system",
-    demo: "",
+    tech: ['React.js', 'Node.js', 'Express', 'MySQL'],
+    image: '/assets/smart.png',
+    github: 'https://github.com/tewa0121/smart-agriculture-management-system',
+    demo: '',
   },
   {
-    title: "Personal Expense Tracker",
-    description: "Financial tracking web tool for recording and visualizing personal budgets.",
+    title: 'Restaurant Management System',
+    description: 'System for order management, table reservation, and sales reporting.',
     features: [
-      "Real-time responsive interface",
-      "Mobile-first design",
+      'CRUD API endpoints for each workflow',
+      'Frontend state integrated with database queries',
     ],
-    tech: ["React.js", "Tailwind CSS", "JavaScript"],
-    image: "/assets/expense.png",
-    github: "https://github.com/tewa0121/expense-tracker",
-    demo: "",
+    tech: ['React.js', 'Node.js', 'Express', 'MySQL', 'JavaScript'],
+    image: '/assets/restaurant.png',
+    github: 'https://github.com/tewa0121/Restaurant-Management-System',
+    demo: '',
+  },
+  {
+    title: 'Hotel Management System (GuestFlow)',
+    description: 'Platform for hotel room reservations, front desk operations, and billing.',
+    features: [
+      'Secure guest authentication',
+      'Room availability queries',
+      'API endpoints validated with Postman',
+    ],
+    tech: ['React.js', 'Node.js', 'Express', 'MySQL', 'JavaScript'],
+    image: '/assets/hotel.png',
+    github: 'https://github.com/tewa0121/hotel-management-system',
+    demo: '',
   },
 ];
 
@@ -70,14 +86,25 @@ const Projects = () => {
               className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-md flex flex-col justify-between"
             >
               <div>
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="w-full h-52 object-cover"
-                  onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/600x400?text=Project+Preview";
-                  }}
-                />
+                <div className="relative">
+                  <img
+                    src={proj.image}
+                    alt={`${proj.title} preview`}
+                    width="600"
+                    height="340"
+                    loading="lazy"
+                    className="w-full h-52 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = FALLBACK_IMAGE;
+                    }}
+                  />
+                  {proj.isNew && (
+                    <span className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                      New
+                    </span>
+                  )}
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-black dark:text-white mb-2">{proj.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">{proj.description}</p>
@@ -91,7 +118,10 @@ const Projects = () => {
 
                   <div className="flex flex-wrap gap-2 mb-2">
                     {proj.tech.map((t) => (
-                      <span key={t} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-xs font-semibold rounded">
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-black dark:text-gray-200 text-xs font-semibold rounded"
+                      >
                         {t}
                       </span>
                     ))}
