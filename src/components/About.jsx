@@ -1,9 +1,8 @@
 import React from 'react';
-import { CheckCircle2, Target } from 'lucide-react';
+import { CheckCircle2, Target, MapPin, GraduationCap, Languages } from 'lucide-react';
 
-// Edit these lists to match your own goals
 const shortTermGoals = [
-  'Complete my B.Sc. degree',
+  'Complete my B.Sc. degree in Software Engineering',
   'Gain practical experience through an internship',
   'Build and deploy more real-world full-stack projects',
 ];
@@ -12,6 +11,12 @@ const longTermGoals = [
   'Build scalable enterprise applications',
   'Design high-efficiency database architectures',
   'Deliver intuitive web experiences with modern frontend technologies',
+];
+
+const facts = [
+  { Icon: MapPin, text: 'Injibara, Ethiopia' },
+  { Icon: GraduationCap, text: 'Injibara University, 2023 – Present' },
+  { Icon: Languages, text: 'Amharic (native) · English (professional)' },
 ];
 
 const GoalList = ({ title, goals }) => (
@@ -37,10 +42,29 @@ const About = () => {
         </h2>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto space-y-8">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            I'm passionate about engineering reliable enterprise platforms, web software
-            solutions, and user-centric web applications.
-          </p>
+          <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p>
+              I'm a 4th-year Software Engineering student at Injibara University who enjoys turning ideas into
+              working web applications. I focus on full-stack development: responsive React interfaces, REST
+              APIs built with Node.js and Express, and relational databases in MySQL.
+            </p>
+            <p>
+              So far I have built five full-stack projects, including a blog platform, a global sentiment
+              tracker and management systems for agriculture, restaurants and hotels. I'm now looking for an
+              internship where I can learn from an engineering team and contribute to real products.
+            </p>
+          </div>
+
+          <ul className="flex flex-wrap gap-3">
+            {facts.map(({ Icon, text }) => (
+              <li
+                key={text}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium"
+              >
+                <Icon size={16} className="shrink-0" /> {text}
+              </li>
+            ))}
+          </ul>
 
           <div>
             <h4 className="text-lg font-bold flex items-center gap-2 text-black dark:text-white mb-4">
