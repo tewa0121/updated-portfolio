@@ -69,6 +69,15 @@ const projects = [
     github: 'https://github.com/tewa0121/hotel-management-system',
     demo: '',
   },
+  {
+    title: 'Personal Expense Tracker',
+    description: 'Financial tracking web tool for recording and visualizing personal budgets.',
+    features: ['Real-time responsive interface', 'Mobile-first design'],
+    tech: ['React.js', 'Tailwind CSS', 'JavaScript'],
+    image: '/assets/expense.png',
+    github: 'https://github.com/tewa0121/expense-tracker',
+    demo: '',
+  },
 ];
 
 const Projects = () => {
