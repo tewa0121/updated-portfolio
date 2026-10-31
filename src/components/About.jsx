@@ -49,8 +49,8 @@ const About = () => {
               APIs built with Node.js and Express, and relational databases in MySQL.
             </p>
             <p>
-              So far I have built five full-stack projects, including a blog platform, a global sentiment
-              tracker and management systems for agriculture, restaurants and hotels. I'm now looking for an
+              So far I have built six projects, including a blog platform, a global sentiment tracker, a personal
+              expense tracker and management systems for agriculture, restaurants and hotels. I'm now looking for an
               internship where I can learn from an engineering team and contribute to real products.
             </p>
           </div>
