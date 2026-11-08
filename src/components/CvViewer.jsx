@@ -71,6 +71,7 @@ const CvViewer = ({ onClose }) => {
               alt="Tewachew Melaku CV"
               className="w-full h-auto max-w-3xl mx-auto shadow-lg bg-white"
             />
+            <p className="text-center text-xs text-gray-500 dark:text-gray-400 pt-3">Pinch to zoom in</p>
             <div className="text-center py-4 flex flex-wrap justify-center gap-3">
               <a
                 href={CV_IMAGE}

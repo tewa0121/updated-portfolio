@@ -18,7 +18,7 @@ const timeline = [
     title: 'Full Stack Web Developer',
     org: 'Independent & Academic Projects',
     description:
-      'Built five full-stack web applications with React, Tailwind CSS, Node.js, Express and MySQL, covering the user interface, REST APIs and database design.',
+      'Built six web applications with React, Tailwind CSS, Node.js, Express and MySQL, covering the user interface, REST APIs and database design.',
     Icon: Briefcase,
   },
 ];

@@ -3,7 +3,8 @@ import { Code, ExternalLink } from 'lucide-react';
 
 const FALLBACK_IMAGE = '/assets/placeholder.svg';
 
-// "demo": paste your deployed link to show a Live Demo button. Leave "" to hide it.
+// "demo": paste the deployed link (https://...) to show a "Live Demo" button on that card.
+// A card with demo: '' shows only the GitHub button.
 const projects = [
   {
     title: 'Smart Blog System',
@@ -57,16 +58,16 @@ const projects = [
     demo: '',
   },
   {
-    title: 'Hotel Management System (GuestFlow)',
-    description: 'Platform for hotel room reservations, front desk operations, and billing.',
+    title: 'Hospital Management System',
+    description:
+      'Hospital management platform (MediCare HMS) for patient records, appointments, wards, billing, pharmacy and laboratory.',
     features: [
-      'Secure guest authentication',
-      'Room availability queries',
-      'API endpoints validated with Postman',
+      'Dashboard with patients, admissions, bed occupancy and available doctors',
+      'Modules for appointments, billing, pharmacy and laboratory',
     ],
-    tech: ['React.js', 'Node.js', 'Express', 'MySQL', 'JavaScript'],
-    image: '/assets/hotel.png',
-    github: 'https://github.com/tewa0121/hotel-management-system',
+    tech: ['React.js', 'Node.js', 'Express', 'MySQL'],
+    image: '/assets/hospital.png',
+    github: 'https://github.com/tewa0121/HOSPITAL-MANAGEMENT-SYSTEM',
     demo: '',
   },
   {
