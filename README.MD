@@ -8,10 +8,10 @@ My personal portfolio website. I'm a 4th-year Software Engineering student at In
 
 - Responsive design for phones, tablets and desktops
 - Light and dark mode that remembers your choice
-- Project showcase with GitHub links
+- Project showcase with GitHub links and live demos
 - CV viewer: PDF on desktop, readable image on phones, plus a download button
 - Working contact form with spam protection
-- Menu that highlights the section you are viewing
+- SEO ready: metadata, Open Graph / Twitter cards, sitemap, robots.txt and structured data
 
 ## Tech Stack
 
@@ -28,7 +28,7 @@ My personal portfolio website. I'm a 4th-year Software Engineering student at In
 - Global Sentiment Tracker
 - Smart Agriculture Management System
 - Restaurant Management System
-- Hotel Management System (GuestFlow)
+- Hospital Management System
 - Personal Expense Tracker
 
 ## Run Locally
@@ -64,11 +64,14 @@ On Vercel, add the same variable in **Project Settings → Environment Variables
 
 | What | Where |
 | --- | --- |
-| Projects, links and images | `src/components/Projects.jsx` |
+| Projects, GitHub links, live demos, images | `src/components/Projects.jsx` |
 | Skills | `src/components/Skills.jsx` |
 | Experience and education | `src/components/Experience.jsx` |
 | About text | `src/components/About.jsx` |
 | CV | Replace both `public/assets/cv.pdf` and `public/assets/cv-preview.jpg` |
+| SEO (title, description, social preview) | `index.html`, `public/sitemap.xml`, `public/robots.txt`, `public/og-image.png` |
+
+If you change the site address, update it in `index.html`, `public/sitemap.xml` and `public/robots.txt`.
 
 ## Deploy
 
