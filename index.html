@@ -3,10 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tewachew Melaku-portfolio</title>
+
+    <!-- Primary metadata -->
+    <title>Tewachew Melaku | Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Tewachew Melaku, a 4th-year Software Engineering student and full-stack developer building web apps with React, Node.js, Express and MySQL. Open to internships."
+    />
+    <meta
+      name="keywords"
+      content="Tewachew Melaku, full stack developer, software engineering student, React developer, Node.js developer, portfolio, Ethiopia, Injibara University"
+    />
+    <meta name="author" content="Tewachew Melaku" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#1d4ed8" />
+    <link rel="canonical" href="https://tewachewmelaku.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Telegram, WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Tewachew Melaku" />
+    <meta property="og:title" content="Tewachew Melaku | Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Software Engineering student building full-stack web applications with React, Node.js and MySQL. Open to internships."
+    />
+    <meta property="og:url" content="https://tewachewmelaku.vercel.app/" />
+    <meta property="og:image" content="https://tewachewmelaku.vercel.app/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tewachew Melaku, Full Stack Developer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tewachew Melaku | Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Software Engineering student building full-stack web applications with React, Node.js and MySQL."
+    />
+    <meta name="twitter:image" content="https://tewachewmelaku.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Tewachew Melaku, Full Stack Developer" />
+
+    <!-- Structured data (helps Google understand who this site is about) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tewachew Melaku",
+        "url": "https://tewachewmelaku.vercel.app/",
+        "image": "https://tewachewmelaku.vercel.app/og-image.png",
+        "jobTitle": "Full Stack Developer",
+        "description": "4th-year Software Engineering student and full-stack developer building web applications with React, Node.js, Express and MySQL.",
+        "email": "mailto:tewachewmelaku6@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Injibara",
+          "addressCountry": "ET"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Injibara University"
+        },
+        "knowsAbout": ["React", "Node.js", "Express.js", "MySQL", "Tailwind CSS", "REST APIs", "JavaScript"],
+        "sameAs": [
+          "https://github.com/tewa0121",
+          "https://www.linkedin.com/in/tewachew-melaku-6b5094408",
+          "https://t.me/tewa0121"
+        ]
+      }
+    </script>
+
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a white flash
+      try {
+        var t = localStorage.getItem('theme');
+        var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
   </head>
   <body class="bg-white dark:bg-gray-900 transition-colors duration-300">
     <div id="root"></div>
+    <noscript>
+      <h1>Tewachew Melaku – Full Stack Developer</h1>
+      <p>
+        4th-year Software Engineering student at Injibara University building web applications with React,
+        Node.js, Express and MySQL. Please enable JavaScript to view this portfolio.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
