@@ -16,7 +16,7 @@ const projects = [
     tech: ['React.js', 'Tailwind CSS', 'Node.js'],
     image: '/assets/blog.png',
     github: 'https://github.com/tewa0121/smart-blog-platform',
-    demo: '',
+    demo: 'https://smart-blog-platform.vercel.app',
     isNew: true,
   },
   {
@@ -68,7 +68,7 @@ const projects = [
     tech: ['React.js', 'Node.js', 'Express', 'MySQL'],
     image: '/assets/hospital.png',
     github: 'https://github.com/tewa0121/HOSPITAL-MANAGEMENT-SYSTEM',
-    demo: '',
+    demo: 'https://hospital-igh.vercel.app',
   },
   {
     title: 'Personal Expense Tracker',
@@ -77,7 +77,7 @@ const projects = [
     tech: ['React.js', 'Tailwind CSS', 'JavaScript'],
     image: '/assets/expense.png',
     github: 'https://github.com/tewa0121/expense-tracker',
-    demo: '',
+    demo: 'https://expense-tracker-21.vercel.app',
   },
 ];
 
